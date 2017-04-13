@@ -28,31 +28,35 @@ describe('#print', function() {
 
   it('should print decreased coverage', function() {
     result = istanbulDiff.print(diff_regressed, opts);
-    assert.equal(result.msg, 'Coverage decreased -60% (-10) lines.');
+    assert.equal(result.msg, 'Coverage decreased -60% (-10) lines. (istanbul/)');
     assert.equal(result.regressed, true);
   });
 
   it('should print increased coverage', function() {
     result = istanbulDiff.print(diff, opts);
-    assert.equal(result.msg, 'Coverage increased +60% (+10) lines.');
+    assert.equal(result.msg, 'Coverage increased +60% (10) lines. (istanbul/)');
     assert.equal(result.regressed, false);
   });
 
   it('should print all with detail option', function() {
     result = istanbulDiff.print(diff, Object.assign({detail: true}, opts));
-    assert.equal(result.msg, 'Coverage delta: +60% (+10) lines, No coverage difference in statements, -10% (-10) functions, -1% (-1) branches');
+    assert.equal(result.msg, `Coverage delta: 
++60% (10) lines (istanbul/)
+No coverage difference in statements (istanbul/)
+-10% (-10) functions (istanbul/)
+-1% (-1) branches (istanbul/)`);
     assert.equal(result.regressed, true);
   });
 
   it('should print specific detail', function() {
     result = istanbulDiff.print(diff, Object.assign({detail: 'functions'}, opts));
-    assert.equal(result.msg, 'Coverage decreased -10% (-10) functions.');
+    assert.equal(result.msg, 'Coverage decreased -10% (-10) functions. (istanbul/)');
     assert.equal(result.regressed, true);
   });
 
   it('should print multiple details', function() {
     result = istanbulDiff.print(diff, Object.assign({detail: 'lines,functions'}, opts));
-    assert.equal(result.msg, 'Coverage delta: +60% (+10) lines, -10% (-10) functions');
+    assert.equal(result.msg, 'Coverage delta: \n+60% (10) lines (istanbul/)\n-10% (-10) functions (istanbul/)');
     assert.equal(result.regressed, true);
   });
 

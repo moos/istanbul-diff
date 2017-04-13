@@ -21,6 +21,8 @@ if (args.length !== 2) {
   console.log('  --nomotivate   disabling compliment, or not!');
   console.log('  --nocolor      disable colorized output');
   console.log('  --nofail       do not exit with code 1 if coverage decreases');
+  console.log('  --recurse      recurse through sub folders (up to depth), otherwise print only root');
+  console.log('  --brief        suppress no-change messages');
   return;
 }
 
@@ -34,9 +36,11 @@ var fileLeft = args[0],
     ignoreLinesCovered: !argv.lines,
     depth             : depth,
     pick              : pick,
-    motivate          : !argv.nomotivate,
+    nomotivate        : argv.nomotivate,
     detail            : !pick && argv.detail, // pick and detail don't work well together
-    nocolor           : argv.nocolor
+    nocolor           : argv.nocolor,
+    recurse           : argv.recurse,
+    brief             : argv.brief
   },
   left = JSON.parse(fs.readFileSync(fileLeft)),
   right = JSON.parse(fs.readFileSync(fileRight)),
