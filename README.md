@@ -9,12 +9,12 @@ code coverage summaries in the vein of [coveralls](https://coveralls.io/).
 $ npm install istanbul-diff
 ```
 ```shell
-$ instanbul-diff  data/coverage-summary1.json data/coverage-summary2.json
-Coverage increased +7.6% (+7) lines. That gives me a happy feeling.
+$ instanbul-diff  test/data/coverage1.json test/data/coverage2.json
+Coverage increased +60% (10) lines. That's good. (istanbul/)
 ```
 
 ## CLI Usage
-```shell
+```
 USAGE:
   istanbul-diff coverage-summary-before.json coverage-summary-after.json
 Options:
@@ -26,6 +26,8 @@ Options:
   --nomotivate   disabling compliment, or not!
   --nocolor      disable colorized output
   --nofail       do not exit with code 1 if coverage decreases
+  --recurse      recurse through sub folders (up to depth), otherwise print only root');
+  --brief        suppress no-change messages');
 ```
 Job will exit with code `1` (fail) if coverage has regressed (decreased), unless `--nofail` is given. 
 
@@ -101,6 +103,7 @@ Pretty print difference in coverage
  *   nocolor {boolean} - don't use ANSI colors in output message
  *   nomotivate {boolean} - don't add motivation message
  *   detail {string} - comma separated list of: lines,statements,functions,branches
+ *   recurse {boolean} - recurse through sub folders
  * @returns {msg: String, regressed: Boolean} 
 ```
 `regresssed` return key is true if _any_ of the metric diffs were negative (used by CLI to return correct exit code).
@@ -113,17 +116,19 @@ Print a [nicejob](https://github.com/moos/nicejob) message.
 ```
 
 ## Test
-```sheell
+```shell
 $ npm run test 
 ```
 
-To get self coverage report:
+To get self coverage report (make sure `istanbul` is installed):
 ```shell
 $ npm run test-cover && open coverage/index.html 
 ```
 
 ## Change log
-v1.0 - initial release (Apr 2017)
+v1.0.1 - added --recurse and --brief options, fixed --nomotivate (Apr 2017)
+
+v1.0.0 - initial release (Apr 2017)
 
 
 ## License
