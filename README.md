@@ -119,7 +119,7 @@ $ npm run test
 
 To get self coverage report:
 ```shell
-$ npm run test-cover && open coverate/index.html 
+$ npm run test-cover && open coverage/index.html 
 ```
 
 ## Change log
