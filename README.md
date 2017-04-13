@@ -3,10 +3,10 @@ istanbul-diff
 
 Uses [jsondiffpatch](https://github.com/benjamine/jsondiffpatch)
 to find & report diffs between two [istanbul](https://github.com/gotwarlost/istanbul) JSON 
-code coverage summaries.
+code coverage summaries in the vein of [coveralls](https://coveralls.io/).
 
-```js
-npm install istanbul-diff
+```shell
+$ npm install istanbul-diff
 ```
 ```shell
 $ instanbul-diff  data/coverage-summary1.json data/coverage-summary2.json
