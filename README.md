@@ -48,11 +48,11 @@ Get diff between two coverage JSON summaries.
  *     { total: {lines: {total:75,covered:59,skipped:0,pct:78.67}, statements: {...}, ... }
  * after {Object} - json-summary data
  * options {object}
- *    options.pick {string|array} - 'lines' or 'lines.covered' or array of such. see #pick()
- *    options.depth {number} - see #dip()
- *    options.ignoreAdded {boolean} - ignore added diffs
- *    options.ignoreRemoved {boolean} - ignore removed diffs
- *    options.ignoreLinesCovered {boolean} - ignore lines covered (detaul: true)
+ *    pick {string|array} - 'lines' or 'lines.covered' or array of such. see #pick()
+ *    depth {number} - see #dip()
+ *    ignoreAdded {boolean} - ignore added diffs
+ *    ignoreRemoved {boolean} - ignore removed diffs
+ *    ignoreLinesCovered {boolean} - ignore lines covered (detaul: true)
  * @returns {object} - for each key in before/after summaries, return diff value
 ```
 Example:
@@ -81,7 +81,7 @@ Prune diff object beyond given depth
  * diff {object} - the diff'd hash
  * depth {number} - root is at 0 (unless options is given)
  * options {object}
- *    options.rootDepth {number} - the depth of the root node
+ *    rootDepth {number} - the depth of the root node
  * returns {object}
 ```
 
@@ -98,9 +98,9 @@ Pretty print difference in coverage
 ```
  * diff {object} - the diff'd hash
  * options {object} - 
- *   options.nocolor {boolean} - don't use ANSI colors in output message
- *   options.nomotivate {boolean} - don't add motivation message
- *   options.detail {string} - comma separated list of: lines,statements,functions,branches
+ *   nocolor {boolean} - don't use ANSI colors in output message
+ *   nomotivate {boolean} - don't add motivation message
+ *   detail {string} - comma separated list of: lines,statements,functions,branches
  * @returns {msg: String, regressed: Boolean} 
 ```
 `regresssed` return key is true if _any_ of the metric diffs were negative (used by CLI to return correct exit code).
