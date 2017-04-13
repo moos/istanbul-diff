@@ -27,6 +27,7 @@ Options:
   --nocolor      disable colorized output
   --nofail       do not exit with code 1 if coverage decreases
 ```
+Job will exit with code `1` (fail) if coverage has regressed (decreased), unless `--nofail` is given. 
 
 Coverage JSON summary files are generated through istanbul's `json-summary` report, e.g.:
 ```shell
@@ -42,7 +43,7 @@ Coverage delta: +7.6% (+7) lines, No coverage difference in functions
 ## API Usage
 ### #diff(before, after, options)
 Get diff between two coverage JSON summaries.
-```js
+```
  * before {Object} - json-summary data, e.g.:
  *     { total: {lines: {total:75,covered:59,skipped:0,pct:78.67}, statements: {...}, ... }
  * after {Object} - json-summary data
@@ -74,11 +75,11 @@ Output:
      branches: { covered: 10, pct: 23 } } }
 ```
 
-### dip(diff, depth, options)
+### #dip(diff, depth, options)
 Prune diff object beyond given depth
-```js
+```
  * diff {object} - the diff'd hash
- * depth {number}
+ * depth {number} - root is at 0 (unless options is given)
  * options {object}
  *    options.rootDepth {number} - the depth of the root node
  * returns {object}
@@ -86,7 +87,7 @@ Prune diff object beyond given depth
 
 ### #pick(diff, props)
 Cherry pick given properties
-```js
+```
  * diff {object} - the diff'd hash
  * props {string|Array} - key map to get, e.g., 'lines.covered', or 'lines'
  * returns {object}
@@ -94,13 +95,21 @@ Cherry pick given properties
 
 ### #print(diff, options)
 Pretty print difference in coverage
-```js
+```
  * diff {object} - the diff'd hash
  * options {object} - 
  *   options.nocolor {boolean} - don't use ANSI colors in output message
  *   options.nomotivate {boolean} - don't add motivation message
  *   options.detail {string} - comma separated list of: lines,statements,functions,branches
  * @returns {msg: String, regressed: Boolean} 
+```
+`regresssed` return key is true if _any_ of the metric diffs were negative (used by CLI to return correct exit code).
+
+### #print.compliment(positive)
+Print a [nicejob](https://github.com/moos/nicejob) message.
+```
+ * positive {boolean} - whether compliment should be positive or negative 
+ * @returns {string} 
 ```
 
 ## Test
@@ -114,7 +123,7 @@ $ npm run test-cover && open coverate/index.html
 ```
 
 ## Change log
-v1.0 - initial release
+v1.0 - initial release (Apr 2017)
 
 
 ## License
