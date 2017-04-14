@@ -126,7 +126,7 @@ $ npm run test-cover && open coverage/index.html
 ```
 
 ## Change log
-v1.0.2 - added --recurse and --brief options, fixed --nomotivate (Apr 2017)
+v1.0.3 - added --recurse and --brief options, fixed --nomotivate and --nocolor (Apr 2017)
 
 v1.0.0 - initial release (Apr 2017)
 
