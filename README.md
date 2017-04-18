@@ -20,7 +20,7 @@ USAGE:
 Options:
   --depth <n>    diff to depth n
   --pick <t>     pick out <t> diff, e.g. lines.pct (comma separated)
-  --lines        include linesCovered
+  --lines        include linesCovered (can be very long!)
   --json         output json diff (always exits successfully)
   --detail <w>   detailed report. <w>=lines,statements,functions,branches or blank for all
   --nomotivate   disabling compliment, or not!
@@ -30,6 +30,8 @@ Options:
   --brief        suppress no-change messages');
 ```
 Job will exit with code `1` (fail) if coverage has regressed (decreased), unless `--nofail` is given. 
+
+Normally only the `lines` metric is reported.  This can be overridden by passing `--detail`.
 
 Coverage JSON summary files are generated through istanbul's `json-summary` report, e.g.:
 ```shell
@@ -104,6 +106,7 @@ Pretty print difference in coverage
  *   nomotivate {boolean} - don't add motivation message
  *   detail {string} - comma separated list of: lines,statements,functions,branches
  *   recurse {boolean} - recurse through sub folders
+ *   brief {boolean} - suppress no-change messages
  * @returns {msg: String, regressed: Boolean} 
 ```
 `regresssed` return key is true if _any_ of the metric diffs were negative (used by CLI to return correct exit code).
@@ -130,10 +133,10 @@ Sample scripts for increasing, decreasing, and same coverage.
 ```shell
 $ npm run sample-inc
 $ npm run sample-dec
-$ npm run sample-same
+$ npm run sample-same -- --detail
 ```
 ## Change log
-v1.0.4 - added --recurse and --brief options, fixed --nomotivate and --nocolor, add sample scripts (Apr 2017)
+v1.0.5 - added --recurse and --brief options, fixed --nomotivate and --nocolor, add sample scripts (Apr 2017)
 
 v1.0.0 - initial release (Apr 2017)
 

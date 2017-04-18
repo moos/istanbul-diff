@@ -7,6 +7,7 @@ let assert = require('assert'),
   cov2 =  JSON.parse(fs.readFileSync('test/data/coverage2.json')),
   diff = istanbulDiff.diff(cov2, cov1),
   diff_regressed = istanbulDiff.diff(cov1, cov2),
+  diff_same = istanbulDiff.diff(cov1, cov1),
   opts = {
     nocolor: true,
     nomotivate: true
@@ -22,7 +23,7 @@ describe('#print', function() {
 
   it('should handle empty argument', function() {
     result = istanbulDiff.print({});
-    assert.equal(result.msg, '');
+    assert.equal(result.msg, '  lines: No change');
     assert.equal(result.regressed, false);
   });
 
@@ -65,6 +66,24 @@ No coverage difference in statements (istanbul/)
     assert.equal(result.msg, 'No such coverage metric: foo');
     assert.equal(result.regressed, false);
   });
+
+  it('should print same coverage', function() {
+    result = istanbulDiff.print(diff_same, opts);
+    assert.equal(result.msg, '  lines: No change');
+    assert.equal(result.regressed, false);
+  });
+
+  it('should print same detail coverage', function() {
+    result = istanbulDiff.print(diff_same, Object.assign({detail: true}, opts));
+    assert.equal(result.msg, `Coverage delta: 
+  lines: No change
+  statements: No change
+  functions: No change
+  branches: No change`);
+    assert.equal(result.regressed, false);
+  });
+
+
 });
 
 describe('#print.compliment', function() {
