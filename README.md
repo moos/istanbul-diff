@@ -125,8 +125,15 @@ To get self coverage report (make sure `istanbul` is installed):
 $ npm run test-cover && open coverage/index.html 
 ```
 
+## Samples
+Sample scripts for increasing, decreasing, and same coverage.
+```shell
+$ npm run sample-inc
+$ npm run sample-dec
+$ npm run sample-same
+```
 ## Change log
-v1.0.3 - added --recurse and --brief options, fixed --nomotivate and --nocolor (Apr 2017)
+v1.0.4 - added --recurse and --brief options, fixed --nomotivate and --nocolor, add sample scripts (Apr 2017)
 
 v1.0.0 - initial release (Apr 2017)
 
