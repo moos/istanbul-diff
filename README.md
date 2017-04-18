@@ -9,7 +9,7 @@ code coverage summaries in the vein of [coveralls](https://coveralls.io/).
 $ npm install istanbul-diff
 ```
 ```shell
-$ instanbul-diff  test/data/coverage1.json test/data/coverage2.json
+$ instanbul-diff test/data/coverage-summary.1.json test/data/coverage-summary.2.json
 Coverage increased +60% (10) lines. That's good. (istanbul/)
 ```
 
@@ -37,11 +37,13 @@ Coverage JSON summary files are generated through istanbul's `json-summary` repo
 ```shell
 $ istanbul cover --report html --reoprt json-summary .
 ```
+Alternatively, use the [moos fork](https://www.npmjs.com/package/istanbul-moos) of istanbul and generate 
+`text-folder` report which makes a much more compact `folder-summary.json` files.
 
 Example:
 ```shell
-$ instanbul-diff  data/coverage-summary1.json data/coverage-summary2.json --detail lines,functions
-Coverage delta: +7.6% (+7) lines, No coverage difference in functions
+$ instanbul-diff  test/data/coverage1.json teat/data/coverage4.json --detail lines,functions
+Coverage delta:  -60% (-10) lines, +10% (10) functions (istanbul/)
 ```
 
 ## API Usage
@@ -136,7 +138,9 @@ $ npm run sample-dec
 $ npm run sample-same -- --detail
 ```
 ## Change log
-v1.0.5 - added --recurse and --brief options, fixed --nomotivate and --nocolor, add sample scripts (Apr 2017)
+v1.1.0 - renamed data files to coverage-summary to emphasize content.  Reformat output text (Apr 2017)
+
+v1.0.6 - added --recurse and --brief options, fixed --nomotivate and --nocolor, add sample scripts (Apr 2017)
 
 v1.0.0 - initial release (Apr 2017)
 

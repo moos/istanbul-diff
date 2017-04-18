@@ -3,9 +3,9 @@
 let assert = require('assert'),
   fs = require('fs'),
   istanbulDiff = require('../lib/index'),
-  cov1 =  JSON.parse(fs.readFileSync('test/data/coverage1.json')),
-  cov2 =  JSON.parse(fs.readFileSync('test/data/coverage2.json')),
-  cov3 =  JSON.parse(fs.readFileSync('test/data/coverage3.json'));
+  cov1 =  JSON.parse(fs.readFileSync('test/data/coverage-summary.1.json')),
+  cov2 =  JSON.parse(fs.readFileSync('test/data/coverage-summary.2.json')),
+  cov3 =  JSON.parse(fs.readFileSync('test/data/coverage-summary.3.json'));
 
 
 describe('#diff', function() {
