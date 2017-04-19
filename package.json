@@ -1,6 +1,6 @@
 {
   "name": "istanbul-diff",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Diffs istanbul json summary coverage reports",
   "main": "lib/index.js",
   "bin": "bin/cli.js",
@@ -21,7 +21,8 @@
     "test-cover": "istanbul cover --report html --report json-summary node_modules/.bin/_mocha",
     "sample-inc": "./bin/cli.js test/data/coverage-summary.2.json test/data/coverage-summary.1.json",
     "sample-dec": "./bin/cli.js test/data/coverage-summary.1.json test/data/coverage-summary.2.json --nofail",
-    "sample-same": "./bin/cli.js test/data/coverage-summary.1.json test/data/coverage-summary.1.json"
+    "sample-same": "./bin/cli.js test/data/coverage-summary.1.json test/data/coverage-summary.1.json",
+    "sample-single": "./bin/cli.js test/data/coverage-summary.1.json"
   },
   "keywords": [
     "istanbul",

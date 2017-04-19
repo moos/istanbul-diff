@@ -22,11 +22,12 @@ Options:
   --pick <t>     pick out <t> diff, e.g. lines.pct (comma separated)
   --lines        include linesCovered (can be very long!)
   --json         output json diff (always exits successfully)
-  --detail <w>   detailed report. <w>=lines,statements,functions,branches or blank for all
+  --detail [<w>] detailed report. <w>=lines,statements,functions,branches or blank for all
+  --recurse      recurse through sub folders (up to depth), otherwise print only root');
+
   --nomotivate   disabling compliment, or not!
   --nocolor      disable colorized output
   --nofail       do not exit with code 1 if coverage decreases
-  --recurse      recurse through sub folders (up to depth), otherwise print only root');
   --brief        suppress no-change messages');
 ```
 Job will exit with code `1` (fail) if coverage has regressed (decreased), unless `--nofail` is given. 
@@ -42,8 +43,14 @@ Alternatively, use the [moos fork](https://www.npmjs.com/package/istanbul-moos) 
 
 Example:
 ```shell
-$ instanbul-diff  test/data/coverage1.json teat/data/coverage4.json --detail lines,functions
+$ instanbul-diff test/data/coverage-summary.1.json test/data/coverage-summary.4.json --detail lines,functions
 Coverage delta:  -60% (-10) lines, +10% (10) functions (istanbul/)
+```
+
+You can also get a terse summary text of a _single_ JSON summary report:
+ ```shell
+$ instanbul-diff test/data/coverage-summary.1.json
+Coverage 80.53% (1836) lines. You outdid yourself today. (istanbul/)
 ```
 
 ## API Usage
@@ -136,13 +143,16 @@ Sample scripts for increasing, decreasing, and same coverage.
 $ npm run sample-inc
 $ npm run sample-dec
 $ npm run sample-same -- --detail
+$ npm run sample-single
 ```
 ## Change log
-v1.1.0 - renamed data files to coverage-summary to emphasize content.  Reformat output text (Apr 2017)
+v1.1.1 - Added _single_ file summary reporting (Apr 2017)
 
-v1.0.6 - added --recurse and --brief options, fixed --nomotivate and --nocolor, add sample scripts (Apr 2017)
+v1.1.0 - Renamed data files to coverage-summary to emphasize content.  Reformat output text (Apr 2017)
 
-v1.0.0 - initial release (Apr 2017)
+v1.0.6 - Added --recurse and --brief options, fixed --nomotivate and --nocolor, add sample scripts (Apr 2017)
+
+v1.0.0 - Initial release (Apr 2017)
 
 
 ## License
