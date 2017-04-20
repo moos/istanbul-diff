@@ -146,7 +146,7 @@ $ npm run sample-same -- --detail
 $ npm run sample-single
 ```
 ## Change log
-v1.1.1 - Added _single_ file summary reporting (Apr 2017)
+v1.1.2 - Added _single_ file summary reporting & node 4.x (LTS) compatibility (Apr 2017)
 
 v1.1.0 - Renamed data files to coverage-summary to emphasize content.  Reformat output text (Apr 2017)
 
