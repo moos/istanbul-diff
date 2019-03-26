@@ -53,7 +53,7 @@ var fileLeft = args[0],
 // console.log(delta)
 
 if (argv.json) {
-  console.log(delta);
+  console.log(JSON.stringify(delta));
 } else {
   result = istanbulDiff.print(delta, options);
   console.log(result.msg);
