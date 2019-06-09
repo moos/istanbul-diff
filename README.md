@@ -1,6 +1,8 @@
 istanbul-diff
 =============
 
+[![NPM version](https://img.shields.io/npm/v/wordpos.svg)](https://www.npmjs.com/package/istanbul-diff)
+
 Uses [jsondiffpatch](https://github.com/benjamine/jsondiffpatch)
 to find & report diffs between two [istanbul](https://github.com/gotwarlost/istanbul) JSON 
 code coverage summaries in the vein of [coveralls](https://coveralls.io/).
