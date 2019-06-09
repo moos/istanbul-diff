@@ -9,7 +9,7 @@ code coverage summaries in the vein of [coveralls](https://coveralls.io/).
 $ npm install istanbul-diff
 ```
 ```shell
-$ instanbul-diff test/data/coverage-summary.1.json test/data/coverage-summary.2.json
+$ istanbul-diff test/data/coverage-summary.1.json test/data/coverage-summary.2.json
 Coverage increased +60% (10) lines. That's good. (istanbul/)
 ```
 
@@ -43,13 +43,13 @@ Alternatively, use the [moos fork](https://www.npmjs.com/package/istanbul-moos) 
 
 Example:
 ```shell
-$ instanbul-diff test/data/coverage-summary.1.json test/data/coverage-summary.4.json --detail lines,functions
+$ istanbul-diff test/data/coverage-summary.1.json test/data/coverage-summary.4.json --detail lines,functions
 Coverage delta:  -60% (-10) lines, +10% (10) functions (istanbul/)
 ```
 
 You can also get a terse summary text of a _single_ JSON summary report:
  ```shell
-$ instanbul-diff test/data/coverage-summary.1.json
+$ istanbul-diff test/data/coverage-summary.1.json
 Coverage 80.53% (1836) lines. You outdid yourself today. (istanbul/)
 ```
 
