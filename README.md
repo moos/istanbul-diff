@@ -22,6 +22,7 @@ Options:
   --pick <t>     pick out <t> diff, e.g. lines.pct (comma separated)
   --lines        include linesCovered (can be very long!)
   --json         output json diff (always exits successfully)
+  --json-compact output compact json diff (always exits successfully)
   --detail [<w>] detailed report. <w>=lines,statements,functions,branches or blank for all
   --recurse      recurse through sub folders (up to depth), otherwise print only root');
 
@@ -146,17 +147,13 @@ $ npm run sample-same -- --detail
 $ npm run sample-single
 ```
 ## Change log
-v1.1.4 - clean up npm package
-
-v1.1.3 - Added explicit lodash dependency (Apr 2017)
-
-v1.1.2 - Added _single_ file summary reporting & node 4.x (LTS) compatibility (Apr 2017)
-
-v1.1.0 - Renamed data files to coverage-summary to emphasize content.  Reformat output text (Apr 2017)
-
-v1.0.6 - Added --recurse and --brief options, fixed --nomotivate and --nocolor, add sample scripts (Apr 2017)
-
-v1.0.0 - Initial release (Apr 2017)
+- v2.0.0 - `--json` now returns correct JSON (thanks @nickofthyme) (:warning: **breaking change** to CLI).  New `--json-compact`.  Fix readme typos (thanks @maxwu). 
+- v1.1.4 - clean up npm package
+- v1.1.3 - Added explicit lodash dependency (Apr 2017)
+- v1.1.2 - Added _single_ file summary reporting & node 4.x (LTS) compatibility (Apr 2017)
+-v1.1.0 - Renamed data files to coverage-summary to emphasize content.  Reformat output text (Apr 2017)
+- v1.0.6 - Added --recurse and --brief options, fixed --nomotivate and --nocolor, add sample scripts (Apr 2017)
+- v1.0.0 - Initial release (Apr 2017)
 
 
 ## License

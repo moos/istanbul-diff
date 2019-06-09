@@ -18,6 +18,7 @@ if (args.length !== 1 && args.length !== 2) {
   console.log('  --pick <t>     pick out <t> diff, e.g. lines.pct (comma separated)');
   console.log('  --lines        include linesCovered (can be very long)');
   console.log('  --json         output json diff (always exits successfully)');
+  console.log('  --json-compact output compact json diff (always exits successfully)');
   console.log('  --detail [<w>] detailed report. <w>=lines,statements,functions,branches or blank for all');
   console.log('  --recurse      recurse through sub folders (up to depth), otherwise print only root');
   console.log('');
@@ -53,7 +54,9 @@ var fileLeft = args[0],
 // console.log(delta)
 
 if (argv.json) {
-  console.log(delta);
+  console.log(JSON.stringify(delta, null, 2));
+} else if (argv['json-compact']) {
+  console.log(JSON.stringify(delta, null, 0));
 } else {
   result = istanbulDiff.print(delta, options);
   console.log(result.msg);
