@@ -39,7 +39,7 @@ Normally only the `lines` metric is reported.  This can be overridden by passing
 
 Coverage JSON summary files are generated through istanbul's `json-summary` report, e.g.:
 ```shell
-$ istanbul cover --report html --reoprt json-summary .
+$ istanbul cover --report html --report json-summary .
 ```
 Alternatively, use the [moos fork](https://www.npmjs.com/package/istanbul-moos) of istanbul and generate 
 `text-folder` report which makes a much more compact `folder-summary.json` files.
@@ -68,7 +68,7 @@ Get diff between two coverage JSON summaries.
  *    depth {number} - see #dip()
  *    ignoreAdded {boolean} - ignore added diffs
  *    ignoreRemoved {boolean} - ignore removed diffs
- *    ignoreLinesCovered {boolean} - ignore lines covered (detaul: true)
+ *    ignoreLinesCovered {boolean} - ignore lines covered (detail: true)
  * @returns {object} - for each key in before/after summaries, return diff value
 ```
 Example:
@@ -121,7 +121,7 @@ Pretty print difference in coverage
  *   brief {boolean} - suppress no-change messages
  * @returns {msg: String, regressed: Boolean} 
 ```
-`regresssed` return key is true if _any_ of the metric diffs were negative (used by CLI to return correct exit code).
+`regressed` return key is true if _any_ of the metric diffs were negative (used by CLI to return correct exit code).
 
 ### #print.compliment(positive)
 Print a [nicejob](https://github.com/moos/nicejob) message.
